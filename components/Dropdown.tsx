@@ -26,11 +26,11 @@ function Dropdown() {
       <DropdownMenuTrigger asChild>
         <div className="flex cursor-pointer items-center gap-3 hover:text-yellow-500">
           <Avatar className="h-8 w-8 ">
-            {/* <AvatarImage
+            <AvatarImage
             src="https://github.com/shadcn.png"
             alt="@shadcn"
             className="grayscale"
-          /> */}
+          />
             <AvatarFallback className="text-sm font-bold bg-yellow-500 text-yellow-900">
               {user.name[0]}
             </AvatarFallback>
@@ -40,15 +40,15 @@ function Dropdown() {
           </div>
         </div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="text-gray-400 w-full">
+      <DropdownMenuContent className="text-gray-400 w-full" align="center">
         <DropdownMenuLabel>
           <div className="flex gap-3 items-center py-2">
             <Avatar className="h-10 w-10">
-              {/* <AvatarImage
+              <AvatarImage
             src="https://github.com/shadcn.png"
             alt="@shadcn"
             className="grayscale"
-          /> */}
+          />
               <AvatarFallback className="text-sm font-bold bg-yellow-500 text-yellow-900">
                 {user.name[0]}
               </AvatarFallback>
