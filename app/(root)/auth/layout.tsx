@@ -6,7 +6,6 @@ import Star from "@/public/assets/icons/star.svg"
 import dashboard from "@/public/assets/images/dashboard.png";
 
 function layout({ children }: { children: React.ReactNode }) {
-    console.log("children", children);
   return (
     <main className="auth-layout">
       <section className="auth-left-section scrollbar-hide-default">

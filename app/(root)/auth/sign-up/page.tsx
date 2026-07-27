@@ -50,18 +50,26 @@ function SignUp() {
           type="text"
           register={register}
           error={errors.fullName}
-          validation={{ required: "full Name is required", minlength: 2 }}
+          validation={{
+            required: "full Name is required",
+            minLength: {
+              value: 2,
+              message: "Full name must be at least 2 charcters",
+            },
+          }}
         />
         <InputInfo
           name="email"
-          label="Eamil"
+          label="Email"
           placeholder="Enter your email"
           register={register}
           error={errors.email}
           validation={{
             required: "Email is required",
-            pattern: /^\w+@\w+\.\w+/,
-            message: "Email address is required",
+            pattern: {
+              value: /^\w+@\w+\.\w+/,
+              message: "Email address is required",
+            },
           }}
         />
         <SelectInfo
@@ -105,7 +113,13 @@ function SignUp() {
           type="password"
           register={register}
           error={errors.password}
-          validation={{ required: "Password is required", minlength: 8 }}
+          validation={{
+            required: "Password is required",
+            minlength: {
+              value: 8,
+              message: "Password must be at least 8 charcters",
+            },
+          }}
         />
         <Button
           disabled={isSubmitting}
@@ -115,7 +129,11 @@ function SignUp() {
           {isSubmitting ? "Creating Account" : "Start Your Investing Journey"}
         </Button>
       </form>
-      <FooterLink text="Already have an account?" linkText="Log In" href="/auth/sign-in"/>
+      <FooterLink
+        text="Already have an account?"
+        linkText="Log In"
+        href="/auth/sign-in"
+      />
     </div>
   );
 }

@@ -32,7 +32,7 @@ function SignIn() {
       <form action="" onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <InputInfo
           name="email"
-          label="Eamil"
+          label="Email"
           placeholder="Enter your email"
           register={register}
           error={errors.email}
@@ -49,7 +49,7 @@ function SignIn() {
           type="password"
           register={register}
           error={errors.password}
-          validation={{ required: "Password is required", minlength: 8 }}
+          validation={{ required: "Password is required", minLength: 8 }}
         />
         <Button
           disabled={isSubmitting}
@@ -60,7 +60,7 @@ function SignIn() {
         </Button>
       </form>
       <FooterLink
-        text="Dont't have an account?"
+        text="Don't have an account?"
         linkText="Sign Up"
         href="/auth/sign-up"
       />
