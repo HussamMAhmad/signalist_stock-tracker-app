@@ -50,7 +50,7 @@ function CountryFieldSelect({
         render={({ field }) => (
           <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild className="country-select-trigger">
-              <Button variant="outline">
+              <Button variant="outline" type="button">
                 <span>
                   {field.value ? (
                     <span>
