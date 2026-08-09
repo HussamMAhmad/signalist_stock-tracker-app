@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import Headers from "@/components/Header";
 import TradingViewWidget from "@/components/tradingViewWidget";
 import {
   MARKET_DATA_WIDGET_CONFIG,
@@ -13,7 +12,6 @@ export const Home = () => {
   const url = "https://s3.tradingview.com/external-embedding/embed-widget-";
   return (
     <main className="min-h-screen text-grey-400">
-      <Headers />
       <div className="min-h-screen px-6 py-6">
         <section className="grid w-full gap-8 home-section pb-8">
           <div className="md:col-span-1 xl:col-span-1">
