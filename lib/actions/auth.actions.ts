@@ -12,28 +12,30 @@ const singUpWithEmail = async ({
   riskTolerance,
   preferredIndustry,
 }: SignUpFormData) => {
+  const response = await auth.api.signUpEmail({
+    body: {
+      name: fullName,
+      email,
+      password,
+    },
+  });
+
+  if (!response) {
+    return { success: false, error: "failed to create account" };
+  }
+
   try {
-    const response = await auth.api.signUpEmail({
-      body: {
+    await inngest.send({
+      name: "app/user.created",
+      data: {
         name: fullName,
         email,
-        password,
+        country,
+        investmentGoals,
+        riskTolerance,
+        preferredIndustry,
       },
     });
-
-    if (response) {
-      await inngest.send({
-        name: "app/user.created",
-        data: {
-          name: fullName,
-          email,
-          country,
-          investmentGoals,
-          riskTolerance,
-          preferredIndustry,
-        },
-      });
-    }
 
     return { success: true, data: response };
   } catch (e) {

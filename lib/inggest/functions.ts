@@ -9,7 +9,7 @@ export const sendSignUpEmail = inngest.createFunction(
   async ({ event, step }) => {
     const userProfile = `
         - Country: ${event.data.country}
-        - Investment goals: ${event.data.InvestmentGoals}
+        - Investment goals: ${event.data.investmentGoals}
         - Risk tolerance: ${event.data.riskTolerance}
         - Preferred industry: ${event.data.preferredIndustry}
     `;

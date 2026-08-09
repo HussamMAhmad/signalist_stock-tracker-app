@@ -41,12 +41,18 @@ function SignUp() {
       const result = await singUpWithEmail(data);
       if (result.success) {
         router.push("/");
+      } else {
+        toast.error("Sign in failed", {
+          description: result.error,
+        });
       }
     } catch (error) {
       console.error(error);
       toast.error("Sign up failed", {
         description:
-          error instanceof Error ? error.message : "failed to create an account",
+          error instanceof Error
+            ? error.message
+            : "failed to create an account",
       });
     }
   };

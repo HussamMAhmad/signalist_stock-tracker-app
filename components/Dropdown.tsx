@@ -17,6 +17,7 @@ function Dropdown({ user }: { user: User }) {
   const router = useRouter();
   const handleSignOut = async () => {
     await signOut();
+    router.refresh();
     router.push("/sign-in");
   };
   return (
