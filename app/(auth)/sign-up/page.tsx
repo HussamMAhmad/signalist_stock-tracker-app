@@ -11,8 +11,12 @@ import {
 } from "@/lib/constants";
 import CountryFieldSelect from "@/components/form/CountryFieldSelect";
 import FooterLink from "@/components/form/footerlink";
+import singUpWithEmail from "@/lib/actions/auth.actions";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 function SignUp() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -34,9 +38,16 @@ function SignUp() {
     data: SignUpFormData,
   ) => {
     try {
-      console.log(data);
+      const result = await singUpWithEmail(data);
+      if (result.success) {
+        router.push("/");
+      }
     } catch (error) {
       console.error(error);
+      toast.error("Sign up failed", {
+        description:
+          error instanceof Error ? error.message : "failed to create an account",
+      });
     }
   };
   return (
@@ -132,7 +143,7 @@ function SignUp() {
       <FooterLink
         text="Already have an account?"
         linkText="Log In"
-        href="/auth/sign-in"
+        href="/sign-in"
       />
     </div>
   );

@@ -1,10 +1,7 @@
 "use client";
-import React from "react";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuLabel,
   DropdownMenuTrigger,
   DropdownMenuSeparator,
@@ -14,23 +11,24 @@ import NavItems from "./navitems";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useRouter } from "next/navigation";
 import { LogOutIcon } from "lucide-react";
+import { signOut } from "@/lib/actions/auth.actions";
 
-function Dropdown() {
+function Dropdown({ user }: { user: User }) {
   const router = useRouter();
-  function handleSignOut() {
-    router.push("/signin");
-  }
-  const user = { name: "Hussam", email: "hussam@email.com" };
+  const handleSignOut = async () => {
+    await signOut();
+    router.push("/sign-in");
+  };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <div className="flex cursor-pointer items-center gap-3 hover:text-yellow-500">
           <Avatar className="h-8 w-8 ">
             <AvatarImage
-            src="https://github.com/shadcn.png"
-            alt="@shadcn"
-            className="grayscale"
-          />
+              src="https://github.com/shadcn.png"
+              alt="@shadcn"
+              className="grayscale"
+            />
             <AvatarFallback className="text-sm font-bold bg-yellow-500 text-yellow-900">
               {user.name[0]}
             </AvatarFallback>
@@ -45,10 +43,10 @@ function Dropdown() {
           <div className="flex gap-3 items-center py-2">
             <Avatar className="h-10 w-10">
               <AvatarImage
-            src="https://github.com/shadcn.png"
-            alt="@shadcn"
-            className="grayscale"
-          />
+                src="https://github.com/shadcn.png"
+                alt="@shadcn"
+                className="grayscale"
+              />
               <AvatarFallback className="text-sm font-bold bg-yellow-500 text-yellow-900">
                 {user.name[0]}
               </AvatarFallback>

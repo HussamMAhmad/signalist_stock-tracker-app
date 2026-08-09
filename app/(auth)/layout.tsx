@@ -2,10 +2,17 @@ import React from "react";
 import Link from "next/link";
 import logo from "@/public/assets/icons/logo.svg";
 import Image from "next/image";
-import Star from "@/public/assets/icons/star.svg"
+import Star from "@/public/assets/icons/star.svg";
 import dashboard from "@/public/assets/images/dashboard.png";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
-function layout({ children }: { children: React.ReactNode }) {
+const layout = async ({ children }: { children: React.ReactNode }) => {
+  const session = await auth.api.getSession({ headers: await headers() });
+
+  if (session?.user) redirect("/");
+
   return (
     <main className="auth-layout">
       <section className="auth-left-section scrollbar-hide-default">
@@ -28,22 +35,35 @@ function layout({ children }: { children: React.ReactNode }) {
           </blockquote>
           <div className="flex items-center justify-between">
             <div>
-                <cite className="auth-testimonial-author">- Ethan R.</cite>
-                <p className="max-md:text-xs text-gray-500">Retail Investor</p>
+              <cite className="auth-testimonial-author">- Ethan R.</cite>
+              <p className="max-md:text-xs text-gray-500">Retail Investor</p>
             </div>
             <div className="flex items-center gap-0.5">
-                {[1,2,3,4,5].map((star)=> (
-                    <Image src={Star} alt="star" key={star} width={20} height={20} className="w-5 h-5"/>
-                ))}
+              {[1, 2, 3, 4, 5].map((star) => (
+                <Image
+                  src={Star}
+                  alt="star"
+                  key={star}
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
+              ))}
             </div>
           </div>
         </div>
         <div className="flex items-center gap-0.5 relative">
-            <Image src={dashboard} alt="dashboard" width={1440} height={1150} className="auth-dashboard-preview absolute top-0"/>
+          <Image
+            src={dashboard}
+            alt="dashboard"
+            width={1440}
+            height={1150}
+            className="auth-dashboard-preview absolute top-0"
+          />
         </div>
       </section>
     </main>
   );
-}
+};
 
 export default layout;

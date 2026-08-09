@@ -1,11 +1,15 @@
-"use client"
+"use client";
 import React from "react";
 import InputInfo from "@/components/form/input";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import FooterLink from "@/components/form/footerlink";
+import { signInWithEmail } from "@/lib/actions/auth.actions";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 function SignIn() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -21,9 +25,16 @@ function SignIn() {
     data: SignInFormData,
   ) => {
     try {
-      console.log(data);
+      const result = await signInWithEmail(data);
+      if (result.success) {
+        router.push("/");
+      }
     } catch (error) {
       console.error(error);
+      toast.error("Sign in faild", {
+        description:
+          error instanceof Error ? error.message : "failed to sign in",
+      });
     }
   };
   return (
@@ -62,7 +73,7 @@ function SignIn() {
       <FooterLink
         text="Don't have an account?"
         linkText="Sign Up"
-        href="/auth/sign-up"
+        href="/sign-up"
       />
     </div>
   );

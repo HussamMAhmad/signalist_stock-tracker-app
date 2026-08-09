@@ -2,8 +2,6 @@ import mongoose from "mongoose";
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
-console.log("mongodb url : " , MONGODB_URI);
-
 async function testDirectConnection() {
   if (!MONGODB_URI) {
     console.error("❌ there is no MONGODB_URI in process.env");
