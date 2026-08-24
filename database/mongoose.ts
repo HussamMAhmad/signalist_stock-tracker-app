@@ -26,7 +26,7 @@ async function dbConnect() {
     const opts = {
       bufferCommands: false,
       serverSelectionTimeoutMS: 30000,
-      family: 4, // الإجبار على IPv4
+      family: 4,
     };
     cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
       return mongoose;
