@@ -38,6 +38,10 @@ export async function getNews(
     const range = getDateRange(6);
     const token = NEXT_PUBLIC_FINNHUB_API_KEY;
 
+    if (!token) {
+      throw new Error("FINNHUB API key is not configured");
+    }
+
     const cleanSymbols = symbols
       ? symbols
           .map((item: string) => item.trim().toUpperCase())

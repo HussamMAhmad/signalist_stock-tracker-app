@@ -82,11 +82,7 @@ export const sendDailyNewsSummery = inngest.createFunction(
           }
           perUser.push({ user, articles });
         } catch (e) {
-          console.error(
-            "daily news : error preparing user news",
-            user.email,
-            e,
-          );
+          console.error("daily news : error preparing user news", user.id, e);
           perUser.push({ user, articles: [] });
         }
       }
@@ -101,7 +97,7 @@ export const sendDailyNewsSummery = inngest.createFunction(
           JSON.stringify(articles, null, 2),
         );
 
-        const response = await step.ai.infer(`generate-news-${user.email}`, {
+        const response = await step.ai.infer(`generate-news-${user.id}`, {
           model: step.ai.models.gemini({ model: "gemini-3.6-flash" }),
           body: {
             contents: [
