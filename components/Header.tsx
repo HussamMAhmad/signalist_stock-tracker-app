@@ -1,11 +1,14 @@
+"use server";
 import React from "react";
 import Link from "next/link";
 import logo from "../public/assets/icons/logo.svg";
 import Image from "next/image";
 import NavItems from "./navitems";
 import Dropdown from "./Dropdown";
+import { searchStocks } from "@/lib/actions/finnhub.action";
 
-function Header({user} : {user : User}) {
+const Header = async ({ user }: { user: User }) => {
+  const initialStocks = await searchStocks();
   return (
     <div className="top-0 sticky header">
       <div className="container header-wrapper">
@@ -19,12 +22,12 @@ function Header({user} : {user : User}) {
           />
         </Link>
         <nav className="hidden sm:block">
-          <NavItems />
+          <NavItems initialStocks={initialStocks} />
         </nav>
-        <Dropdown user={user}/>
+        <Dropdown user={user} initialStocks={initialStocks} />
       </div>
     </div>
   );
-}
+};
 
 export default Header;

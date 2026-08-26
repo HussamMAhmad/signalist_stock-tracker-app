@@ -13,7 +13,13 @@ import { useRouter } from "next/navigation";
 import { LogOutIcon } from "lucide-react";
 import { signOut } from "@/lib/actions/auth.actions";
 
-function Dropdown({ user }: { user: User }) {
+function Dropdown({
+  user,
+  initialStocks,
+}: {
+  user: User;
+  initialStocks: StockWithWatchlistStatus[];
+}) {
   const router = useRouter();
   const handleSignOut = async () => {
     await signOut();
@@ -68,7 +74,7 @@ function Dropdown({ user }: { user: User }) {
         </DropdownMenuItem>
         <DropdownMenuSeparator className="bg-gray-600 md:hidden block" />
         <nav className="md:hidden block">
-          <NavItems />
+          <NavItems initialStocks={initialStocks} />
         </nav>
       </DropdownMenuContent>
     </DropdownMenu>
