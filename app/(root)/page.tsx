@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
 import TradingViewWidget from "@/components/tradingViewWidget";
 import {
   MARKET_DATA_WIDGET_CONFIG,
