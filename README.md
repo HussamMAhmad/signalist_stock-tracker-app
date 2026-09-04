@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![Uploading Gemini_Generated_Image_ubl6u8ubl6u8ubl6.jpg…]()
 
-## Getting Started
 
-First, run the development server:
+# 📈 Stock Tracker Platform
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+A modern, full-stack financial dashboard designed to track stock markets in real-time, search for equities, monitor personalized watchlists, and manage secure user authentication. Built with Next.js 15, TypeScript, Tailwind CSS, Better Auth, Finnhub Financial API, and Inngest for background workflows.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Key Features | المميزات الرئيسية
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Secure Authentication:** Complete sign-in, sign-up, and sign-out flows powered by **Better Auth** with session-based route protection.
+- **Real-Time Stock Search:** Fast symbol and company search powered by Finnhub API with query debouncing.
+- **Popular Stocks Overview:** Instant dashboard display for trending market equities with server-side caching.
+- **Personalized Watchlists:** Track favorite stocks and monitor performance across user sessions.
+- **Background Event Processing:** Automated tasks and background workflow queues powered by Inngest.
+- **Optimized Performance:** Built with React Server Components (RSC) and caching layers for minimal latency.
+- **Clean Responsive UI:** Fully responsive design built using Tailwind CSS for seamlessly tracking assets on mobile and desktop.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Tech Stack | التقنيات المستخدمة
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **Frontend & Framework**
+- **[Next.js 15 (App Router)](https://nextjs.org/):** React framework for Server-Side Rendering (SSR), Server Actions, and React Server Components.
+- **[TypeScript](https://www.typescriptlang.org/):** End-to-end type safety for rock-solid application stability.
+- **[Tailwind CSS](https://tailwindcss.com/):** Utility-first CSS framework for modern, high-performance UI components.
+- **[Lucide React](https://lucide.dev/):** Lightweight, customizable icons.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **Authentication & Security**
+- **[Better Auth](https://www.better-auth.com/):** Modern, type-safe authentication library for TypeScript & Next.js to handle session management, user credentials, and route guards securely.
 
-## Deploy on Vercel
+### **Backend, APIs & Workflows**
+- **[Finnhub Stock API](https://finnhub.io/):** Real-time REST API for market prices, company profiles, and stock ticker searches.
+- **[Inngest](https://www.inngest.com/):** Serverless background jobs, scheduled functions, and event-driven workflow engine.
+- **React `cache` & Server Actions:** Secure server-side execution and API key isolation.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
