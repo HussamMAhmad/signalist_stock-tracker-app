@@ -1,4 +1,4 @@
-![Uploading Gemini_Generated_Image_ubl6u8ubl6u8ubl6.jpg…]()
+![Stock Tracker Architecture & Tech Stack](./public/assets/stock-tracker.jpg)
 
 
 # 📈 Stock Tracker Platform
