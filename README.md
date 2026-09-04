@@ -1,4 +1,4 @@
-![Stock Tracker Architecture & Tech Stack](./public/assets/stock-tracker.jpg)
+![Stock Tracker Architecture & Tech Stack](./public/assets/images/stock-tracker.jpg)
 
 
 # 📈 Stock Tracker Platform
