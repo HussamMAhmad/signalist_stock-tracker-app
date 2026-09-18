@@ -45,7 +45,7 @@ function Dropdown({
           </div>
         </div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="text-gray-400 w-full" align="center">
+      <DropdownMenuContent className="text-gray-400 w-full" align="end">
         <DropdownMenuLabel>
           <div className="flex gap-3 items-center py-2">
             <Avatar className="h-10 w-10">
